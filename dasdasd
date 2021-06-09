@@ -1,0 +1,86 @@
+
+    modulo de usuarios crear-eliminar-consultar
+
+[33mcommit 3e73522798c1277e7efaba6aa11980db8fb08019[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun May 9 23:01:34 2021 -0500
+
+    Fin modulo inmuebles
+
+[33mcommit f322e560377ab9e508578640922fcf15b8c19ee2[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun May 9 17:02:40 2021 -0500
+
+    modulo de inmuebles, lista principal diferenciando roles y eliminar funcionando
+
+[33mcommit 4be3b4fc01c4848604e0c56d45e81f5acae1cf86[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Wed May 5 18:22:58 2021 -0500
+
+    Fin sesiones, login y registro
+
+[33mcommit ed5c8e9fc7abfad51ff7bfd563bc2912236a6853[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Wed May 5 16:55:32 2021 -0500
+
+    fin login y sesiones
+
+[33mcommit 1b781baf14697551df887823fc35de44de64193e[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun May 2 16:31:57 2021 -0500
+
+    movimientos archivos
+
+[33mcommit 0f2d350ee42eec4b01684dd366a29213533568db[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun May 2 16:25:57 2021 -0500
+
+    inicio sesiones
+
+[33mcommit cca927cf3eb270c6ae8020c2aa77ca3e1b43116c[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun Apr 25 17:08:46 2021 -0500
+
+    cambios a queries
+
+[33mcommit 5a2574ce72e386798338ec261f8cc1039b3a52d6[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sun Apr 25 13:56:15 2021 -0500
+
+    commit
+
+[33mcommit 21dfd2458f3cc0211629a62146503225ca6db2c3[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 22:09:01 2021 -0500
+
+    falta de archivo
+
+[33mcommit df295c29d9a21657d8237133b675eafdae3fef39[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 22:05:01 2021 -0500
+
+    interaccion de componentes
+
+[33mcommit 55ee0d2b5d02cec4f79df200988fda43c686238d[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 21:29:03 2021 -0500
+
+    falta de archivos
+
+[33mcommit 4c9f1a46235aeec230b280d2d780bbad796ca5e4[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 21:27:54 2021 -0500
+
+    adelanto
+
+[33mcommit d2c9f7b7a15e244fabd6a5ef7114201436f56493[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 19:42:17 2021 -0500
+
+    primer commit assets
+
+[33mcommit dde4a10b7fec3176c8cf6f89c2a1994dfa24ed29[m
+Author: JuanPue <83104887+JuanPue@users.noreply.github.com>
+Date:   Sat Apr 24 19:18:33 2021 -0500
+
+    initial commit

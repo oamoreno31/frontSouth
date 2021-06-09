@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<section
+  class="breadcumb-area bg-img"
+  style="background-image: url(assets/img/bg-img/hero1.jpg)"
+>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-content">
+          <h3 class="breadcumb-title">Consulta Inmueble</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="listings-content-wrapper section-padding-100">
+  <div class="container">
+    <div class="row">
+      <ngb-carousel>
+        <ng-template *ngFor="let imagen of images" ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="{{ imagen.img }}" alt="Random first slide" />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="listings-content">
+          <!-- Price -->
+          <div class="list-price">
+            <p>${{ inmuebles["precio"] }}</p>
+          </div>
+          <h5>{{ inmuebles["tipo"] }} - {{ inmuebles["tipo_inmueble"] }}</h5>
+          <p class="location">
+            <img src="assets/img/icons/location.png" alt="" />{{
+              inmuebles["direccion"]
+            }}
+            - {{ inmuebles["ciudad"] }} - {{ inmuebles["barrio"] }}
+          </p>
+          <p>Descripción:</p>
+          <p>{{ inmuebles["descripcion"] }}</p>
+          <p *ngIf="!isLogged">Para más información, inicie sesión</p>
+          <!-- Meta -->
+          <div class="property-meta-data d-flex align-items-end">
+            <div class="new-tag">
+              <img src="assets/img/icons/new.png" alt="" />
+            </div>
+            <div class="bathroom">
+              <img src="assets/img/icons/bathtub.png" alt="" />
+              <span>Baños: {{ inmuebles["num_banos"] }}</span>
+            </div>
+            <div class="garage">
+              <img src="assets/img/icons/garage.png" alt="" />
+              <span>Habitaciones: {{ inmuebles["num_habitaciones"] }}</span>
+            </div>
+            <div class="space">
+              <img src="assets/img/icons/space.png" alt="" />
+              <span>Estrato: {{ inmuebles["estrato"] }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios">
+        <div class="contact-realtor-wrapper">
+          <div class="realtor-info">
+            <div class="realtor---info">
+              <h2>{{ usuario.nombre }} {{ usuario.apellido }}</h2>
+              <p>Vendedor</p>
+              <h6>
+                <img src="assets/img/icons/phone-call.png" alt="" />{{
+                  usuario.telefono
+                }}
+              </h6>
+              <h6>
+                <img src="assets/img/icons/envelope.png" alt="" />{{
+                  usuario.correo
+                }}
+              </h6>
+            </div>
+            <div class="realtor--contact-form">
+              <form action="#" method="post">
+                <button type="submit" class="btn south-btn">
+                  Agendar una cita
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<router-outlet></router-outlet>

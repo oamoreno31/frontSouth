@@ -1,0 +1,104 @@
+<!-- ##### Advance Search Area End ##### -->
+
+<!-- ##### Featured Properties Area Start ##### -->
+<app-navbar></app-navbar>
+<section
+  class="breadcumb-area bg-img"
+  style="background-image: url(assets/img/bg-img/hero1.jpg)"
+>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-content">
+          <h3 class="breadcumb-title">Login</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured-properties-area section-padding-100-50">
+  <div class="container">
+    <!-- Mensaje que se muestra para logueados-->
+    <div class="row" *ngIf="isLogged; else loggedOut">
+      <div class="col-12">
+        <div class="contact-heading">
+          <h6>¡Ya has iniciado sesión!</h6>
+        </div>
+      </div>
+    </div>
+    <!-- fin mensaje-->
+
+    <ng-template #loggedOut>
+      <!-- dividir la pantalla en 2 para hacer registro y login-->
+      <div class="row">
+        <div class="col-12">
+          <div class="contact-heading">
+            <h6>Login</h6>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="content-sidebar">
+            <!-- Office Hours -->
+            <div class="weekly-office-hours">
+              <ul>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Correo</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Contraseña</span> <span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Area -->
+        <div class="col-12 col-lg-8">
+          <div class="contact-form">
+            <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="text"
+                  id="contact-name"
+                  placeholder="Correo"
+                  required
+                  [(ngModel)]="correo"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="text"
+                  id="contact-number"
+                  placeholder="Contraseña"
+                  required
+                  [(ngModel)]="clave"
+                />
+              </div>
+              <div class="form-group">
+                <span
+                  >¿No tienes cuenta?, haz click
+                  <a routerLink="/registro">aquí</a></span
+                >
+              </div>
+
+              <button type="submit" class="btn south-btn" [disabled]="!f.valid">
+                Login
+              </button>
+            </form>
+            <div *ngIf="errorusuario !== ''">{{ errorusuario }}</div>
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </ng-template>
+
+  </div>
+</section>
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>

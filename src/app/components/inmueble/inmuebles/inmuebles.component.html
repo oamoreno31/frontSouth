@@ -1,0 +1,253 @@
+<app-navbar></app-navbar>
+<section
+  class="breadcumb-area bg-img"
+  style="background-image: url(assets/img/bg-img/hero1.jpg)"
+>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-content">
+          <h3 class="breadcumb-title">Inmuebles</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="south-search-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="advanced-search-form">
+          <!-- Search Title -->
+          <div class="search-title">
+            <p>Busqueda avanzada</p>
+          </div>
+          <!-- Search Form -->
+
+          <div class="row">
+            <div class="col-12 col-md-8 col-lg-8">
+              <a
+                >Escriba aquí su filtro: barrio, ciudad, servicio, tipo de
+                inmueble, dirección o estado</a
+              >
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cities"
+                  ngModel
+                  (ngModelChange)="search(key.value)"
+                  #key="ngModel"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="featured-properties-area section-padding-100-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12" *ngIf="rol != 'comercial'">
+        <h4>
+          Registra un nuevo inmueble dando click en el botón
+          <button class="btn south-btn" routerLink="/registrarinmueble">
+            Registrar
+          </button>
+        </h4>
+      </div>
+      <div class="col-12">
+        <h1 *ngIf="inmuebles.length == 0">
+          ¡Aún no has registrado ningún inmueble, registra uno dando click
+          <a style="font-size: 40px">aquí</a>¡
+        </h1>
+        <div class="table-responsive">
+          <table
+            id="data-table-basic"
+            class="table table-striped text-center"
+            *ngIf="inmuebles.length >= 1"
+            style="padding: 125px"
+          >
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Ciudad</th>
+                <th>Barrio</th>
+                <th>Direccion</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th colspan="2">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let inmueble of inmuebles; index as i">
+                <td>{{ inmueble.tipo }}</td>
+                <td>{{ inmueble.ciudad }}</td>
+                <td>{{ inmueble.barrio }}</td>
+                <td>{{ inmueble.direccion }}</td>
+                <td>{{ inmueble.tipo_inmueble }}</td>
+                <td>{{ inmueble.estado }}</td>
+                <td>{{ inmueble.precio }}</td>
+                <td *ngIf="rol != 'comercial'">
+                  <button
+                    class="btn south-btn btn-xs"
+                    (click)="editar(inmueble.id)"
+                    *ngIf="inmueble.estado != 'Vendido' && rol != 'user'"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    class="btn south-btn btn-xs"
+                    (click)="editar(inmueble.id)"
+                    *ngIf="rol != 'admin' && inmueble.estado != 'Vendido'"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    class="btn south-btn btn-xs"
+                    data-toggle="modal"
+                    [attr.data-target]="'#MD' + inmueble.id"
+                    *ngIf="inmueble.estado == 'Activo'"
+                  >
+                    Eliminar
+                  </button>
+                  <div
+                    class="modal fade"
+                    id="MD{{ inmueble.id }}"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="modal-dialog modal-dialog-centered"
+                      role="document"
+                    >
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            Estas a punto de eliminar tu inmueble ¿Deseas
+                            Continuar?
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-footer">
+                          <form #f="ngForm">
+                            <input
+                              [(ngModel)]="inmueble.id"
+                              value=""
+                              disabled
+                              name="direccion"
+                              type="hidden"
+                              class="form-control"
+                            />
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Cancelar
+                            </button>
+                            <button
+                              class="btn btn-danger"
+                              data-dismiss="modal"
+                              (click)="inactivarInmueble(inmueble.id)"
+                            >
+                              Si, eliminar
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="rol == 'comercial'">
+                  <button
+                    class="btn south-btn btn-xs"
+                    data-toggle="modal"
+                    [attr.data-target]="'#MD' + inmueble.id"
+                    *ngIf="inmueble.estado == 'Activo'"
+                  >
+                    Vender</button
+                  >&nbsp;&nbsp;&nbsp;
+                  <div
+                    class="modal fade"
+                    id="MD{{ inmueble.id }}"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="modal-dialog modal-dialog-centered"
+                      role="document"
+                    >
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            Este inmueble se marcará como vendido, ¿Desea
+                            continuar? {{ inmueble.direccion }}
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-footer">
+                          <form #f="ngForm">
+                            <input
+                              [(ngModel)]="inmueble.id"
+                              value=""
+                              disabled
+                              name="direccion"
+                              type="hidden"
+                              class="form-control"
+                            />
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-dismiss="modal"
+                            >
+                              Cancelar</button
+                            >&nbsp;&nbsp;&nbsp;
+                            <button
+                              class="btn btn-danger"
+                              data-dismiss="modal"
+                              (click)="venderInmueble(inmueble.id)"
+                            >
+                              Si, vender
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+  </div>
+</section>
+<app-footer></app-footer>
+<router-outlet></router-outlet>

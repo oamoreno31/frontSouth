@@ -1,0 +1,217 @@
+<app-navbar></app-navbar>
+<section
+  class="breadcumb-area bg-img"
+  style="background-image: url(assets/img/bg-img/hero1.jpg)"
+>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-content">
+          <h3 class="breadcumb-title">Registrar inmueble</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured-properties-area section-padding-100-50">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <div class="content-sidebar">
+          <!-- Office Hours -->
+          <div class="weekly-office-hours">
+            <ul>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Ciudad</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Area</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Barrio</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Estrato</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Dirección</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Tipo de inmueble</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Servicio</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Precio</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Numero de baños</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Numero de habitaciones</span> <span></span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <span>Descripción</span> <span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-8">
+        <div class="contact-form">
+          <form #addForm="ngForm" (ngSubmit)="registrar(addForm)">
+            <input
+              type="hidden"
+              name="certificado"
+              id="certificado"
+              [ngModel]="certifcado"
+            />
+            <input type="hidden" name="estado" id="estado" [ngModel]="estado" />
+            <input type="hidden" name="ruta" id="ruta" [ngModel]="ruta" />
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="ciudad"
+                id="ciudad"
+                placeholder="Ciudad"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="area"
+                id="area"
+                placeholder="Area"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="barrio"
+                id="barrio"
+                placeholder="Ciudad"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                name="estrato"
+                id="estrato"
+                placeholder="Estrato"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="direccion"
+                id="direccion"
+                placeholder="Dirección"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <select
+                class="form-control custom-select"
+                name="tipo_inmueble"
+                id="tipo_inmueble"
+                required
+                ngModel
+              >
+                <option value="Apartamento">Apartamento</option>
+                <option value="Casa">Casa</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select
+                class="form-control custom-select"
+                name="tipo"
+                id="tipo"
+                required
+                ngModel
+              >
+                <option value="Arriendo">Arriendo</option>
+                <option value="Venta">Venta</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                name="precio"
+                id="precio"
+                placeholder="Precio"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                name="num_banos"
+                id="num_banos"
+                placeholder="Numero de baños"
+                required
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                name="num_habitaciones"
+                id="num_habitaciones"
+                placeholder="Numero de habitaciones"
+                ngModel
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control rounded-0"
+                id="descripcion"
+                name="descripcion"
+                rows="3"
+                placeholder="Descripción"
+                ngModel
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn south-btn"
+              [disabled]="addForm.invalid"
+            >
+              Registrar Inmueble
+            </button>
+          </form>
+          <div class="form-group">
+            <button class="btn south-btn" routerLink="/inmuebles">
+              Volver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+<router-outlet></router-outlet>

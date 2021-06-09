@@ -1,0 +1,158 @@
+<!-- ##### Advance Search Area End ##### -->
+
+<!-- ##### Featured Properties Area Start ##### -->
+<app-navbar></app-navbar>
+<section
+  class="breadcumb-area bg-img"
+  style="background-image: url(assets/img/bg-img/hero1.jpg)"
+>
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="breadcumb-content">
+          <h3 class="breadcumb-title">Registro</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured-properties-area section-padding-100-50">
+  <div class="container">
+    <!-- Mensaje que se muestra para logueados-->
+    <div class="row" *ngIf="isLogged; else loggedOut">
+      <div class="col-12">
+        <div class="contact-heading">
+          <h6>¡Ya has iniciado sesión!</h6>
+        </div>
+      </div>
+    </div>
+    <!-- fin mensaje-->
+
+    <ng-template #loggedOut>
+      <!-- dividir la pantalla en 2 para hacer registro y login-->
+      <div class="row">
+        <div class="col-12">
+          <div class="contact-heading">
+            <h6>Registro</h6>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="content-sidebar">
+            <!-- Office Hours -->
+            <div class="weekly-office-hours">
+              <ul>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Nombre</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Apellido</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Identificación</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Telefono</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Correo</span> <span></span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between">
+                  <span>Clave</span> <span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Area -->
+        <div class="col-12 col-lg-8">
+          <div class="contact-form">
+            <form #f="ngForm" (ngSubmit)="onRegister()">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="tname"
+                  id="contact-name"
+                  placeholder="Nombre"
+                  required
+                  [(ngModel)]="nombre"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="ap"
+                  id="contact-ap"
+                  placeholder="Apellido"
+                  required
+                  [(ngModel)]="apellido"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="id"
+                  id="contact-id"
+                  placeholder="Identificación"
+                  required
+                  [(ngModel)]="identificacion"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="tel"
+                  id="contact-tel"
+                  placeholder="Telefono"
+                  required
+                  [(ngModel)]="telefono"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="cor"
+                  id="contact-cor"
+                  placeholder="Correo"
+                  required
+                  [(ngModel)]="correo"
+                  ngModel
+                  email
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="clave"
+                  id="contact-clave"
+                  placeholder="Contraseña"
+                  required
+                  [(ngModel)]="clave"
+                />
+              </div>
+              <button type="submit" class="btn south-btn" [disabled]="!f.valid">
+                Registrarse
+              </button>
+            </form>
+            <div *ngIf="errorusuario !== ''">{{ errorusuario }}</div>
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </ng-template>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+
+
+  </div>
+</section>
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>
